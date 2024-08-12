@@ -1,3 +1,7 @@
+.title{
+  margin-left: 40px;
+}
+
 .banner {
   background-color: #f8d7da;
   color: #721c24;
@@ -16,4 +20,96 @@ nav {
 
 nav a {
   margin: 0 10px;
+}
+
+.banner-form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.select-field {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.status-message {
+  color: green;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="datetime-local"] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.banner {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; 
+  width: 80%; 
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.banner p {
+  margin-bottom: 10px;
+}
+
+.banner a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.banner a:hover {
+  background-color: #0056b3;
+}
+
+.banner p:last-child {
+  font-weight: bold;
+}
+
+@media(max-width:700px){
+  .title{
+      font-size: 24px;
+      margin-left: 20px;
+  }
 }

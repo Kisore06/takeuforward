@@ -8,8 +8,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const testRouter= require('./src/routes/testRoutes');
+const bannerRouter= require('./src/routes/bannerRoutes');
 
 app.use('/api',testRouter)
+app.use('/api',bannerRouter)
 
 
 app.get('/', (req, res) => {

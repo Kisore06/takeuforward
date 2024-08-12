@@ -4,6 +4,12 @@ const Banner = ({ isVisible, text, link, timer, onTimeUp }) => {
   const [timeLeft, setTimeLeft] = useState(timer);
 
   useEffect(() => {
+    if (isVisible) {
+      setTimeLeft(timer);  
+    }
+  }, [timer, isVisible]);
+
+  useEffect(() => {
     if (isVisible && timeLeft > 0) {
       const countdown = setInterval(() => {
         setTimeLeft(prevTime => prevTime - 1);
@@ -13,7 +19,7 @@ const Banner = ({ isVisible, text, link, timer, onTimeUp }) => {
     } else if (timeLeft === 0) {
       onTimeUp();
     }
-  }, [isVisible, timeLeft]);
+  }, [isVisible, timeLeft, onTimeUp]);
 
   if (!isVisible) return null;
 
@@ -21,7 +27,7 @@ const Banner = ({ isVisible, text, link, timer, onTimeUp }) => {
     <div className="banner">
       <p>{text}</p>
       <a href={link} target="_blank" rel="noopener noreferrer">Click Here</a>
-      <p>Time Left: {timeLeft} seconds</p>
+      <p>Time Left: {timeLeft} </p>
     </div>
   );
 };
