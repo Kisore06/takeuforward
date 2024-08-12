@@ -1,14 +1,9 @@
 const mysql = require('mysql2');
+require ("dotenv").config();
 
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'take_u_forward',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
+const UrlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQPORT}/${process.env.MYSQLDATABASE}`
+
+const pool = mysql.createPool(UrlDB);
 
 
 pool.on('error', (err) => {
