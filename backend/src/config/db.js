@@ -1,9 +1,16 @@
 const mysql = require('mysql2');
 require ("dotenv").config();
 
-const UrlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQPORT}/${process.env.MYSQLDATABASE}`
 
-const pool = mysql.createPool(UrlDB);
+const pool = mysql.createPool({
+  host: 'mysql.railway.internal',
+  user: 'root',
+  password: 'JVBweJnxSrQydUWhMBwDoHYeakSsUvSn',
+  database: 'railway',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 
 
 pool.on('error', (err) => {
