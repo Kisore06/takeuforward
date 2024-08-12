@@ -10,6 +10,13 @@
   margin: 10px 0;
 }
 
+.close{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .dashboard {
   padding: 20px;
 }

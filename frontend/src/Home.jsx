@@ -4,13 +4,13 @@ import axios from 'axios';
 import api from './utils/api.js';
 import Dashboard from './Dashboard';
 
-
 const Home = () => {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
   const [bannerText, setBannerText] = useState("Welcome to our website!");
   const [bannerLink, setBannerLink] = useState("https://example.com");
   const [bannerEndTime, setBannerEndTime] = useState(null);
   const [timeLeft, setTimeLeft] = useState(0);
+  const [showViewBannerButton, setShowViewBannerButton] = useState(false);
 
   useEffect(() => {
     const fetchBanner = async () => {
@@ -43,6 +43,7 @@ const Home = () => {
         if (timeDifference <= 0) {
           setTimeLeft(0);
           setIsBannerVisible(false);
+          setShowViewBannerButton(true);
           clearInterval(intervalId);
         } else {
           setTimeLeft(Math.ceil(timeDifference / 1000));
@@ -67,17 +68,36 @@ const Home = () => {
     return timeString;
   };
 
+  const handleTimeUp = () => {
+    setIsBannerVisible(false);
+    setShowViewBannerButton(true);
+  };
+
+  const handleClose = () => {
+    setIsBannerVisible(false);
+    setShowViewBannerButton(true);
+  };
+
+  const handleShowBanner = () => {
+    setIsBannerVisible(true);
+    setShowViewBannerButton(false);
+    console.log(showViewBannerButton)
+  };
+
   return (
     <div className="home">
       <h1 className='title'>Example task:</h1>
-      {isBannerVisible && (
+      {isBannerVisible ? (
         <Banner
           isVisible={isBannerVisible}
           text={bannerText}
           link={bannerLink}
           timer={formatTime(timeLeft)}
-          onTimeUp={() => setIsBannerVisible(false)}
+          onTimeUp={handleTimeUp}
+          onClose={handleClose}
         />
+      ) : (
+        <button onClick={handleShowBanner} className='title submit-button'>View Banner</button>
       )}
       <Dashboard />
     </div>

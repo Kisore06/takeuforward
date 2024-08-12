@@ -12,7 +12,6 @@ const App = () => {
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/dashboard" element={<Dashboard setIsBannerVisible={setIsBannerVisible} setBannerText={setBannerText} setBannerLink={setBannerLink} setBannerTimer={setBannerTimer} />} /> */}
       </Routes>
     </div>
   );
